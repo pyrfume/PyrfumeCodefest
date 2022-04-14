@@ -17,7 +17,8 @@ Code with friends and the teaching staff on the back deck of the Hyatt, starting
 
 Show your work: Thursday, April 21st at 4 pm (Great Egret): Present your best result at the Mentoring and Networking Social, you have two minutes to present one graph.
 
-## Guidelines (modified from #TidyTuesday https://github.com/rfordatascience/tidytuesday)
+## Guidelines 
+(modified from #TidyTuesday https://github.com/rfordatascience/tidytuesday)
 
 We welcome all newcomers, enthusiasts, and experts to participate, but be mindful of a few things:
 1. This is NOT about criticizing the original dataset. Focus on the provided dataset, learning, and improving your visualization techniques.
