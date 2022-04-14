@@ -1,4 +1,4 @@
-# PyrfumeCodefest
+# Pyrfume Codefest
 
 
 ## What is Pyrfume Codefest?
