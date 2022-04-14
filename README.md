@@ -3,7 +3,9 @@
 
 ## What is Pyrfume Codefest?
 
-The goal of theCodefest is for you to apply your programming skills, learn from others, get feedback, explore others' work, and connect with the larger AChemS community. This codefest will focus on data curated by the Pyrfume Project. We will provide starter code, orient you to the available datasets, and provide a team of teachers as support for working in both R and Python. We welcome coders of all skill levels and from any chemosensory system! 
+The goal of theCodefest is for you to apply your programming skills, learn from others, get feedback, explore others' work, and connect with the larger AChemS community. This codefest will focus on data curated by the Pyrfume Project. We will provide starter code, orient you to the available datasets, and, if you are in person at AChemS 2022, provide a team of teachers as support for working in both R and Python. We welcome coders of all skill levels and from any chemosensory system! 
+
+This is inspired by the great project over at [TidyTuesday] (https://github.com/rfordatascience/tidytuesday)
 
 ## What is Pyrfume?
 
@@ -18,7 +20,7 @@ Code with friends and the teaching staff on the back deck of the Hyatt, starting
 Show your work: Thursday, April 21st at 4 pm (Great Egret): Present your best result at the Mentoring and Networking Social, you have two minutes to present one graph.
 
 ## Guidelines 
-(modified from #TidyTuesday https://github.com/rfordatascience/tidytuesday)
+(modified from [/#TidyTuesday] (https://github.com/rfordatascience/tidytuesday)
 
 We welcome all newcomers, enthusiasts, and experts to participate, but be mindful of a few things:
 1. This is NOT about criticizing the original dataset. Focus on the provided dataset, learning, and improving your visualization techniques.
