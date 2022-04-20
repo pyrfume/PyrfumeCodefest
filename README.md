@@ -27,10 +27,6 @@ If you are a beginning coder, we recommend that you start by reproducing Figure 
 
 Next, we have beginner code for looking at the Dravnieks Odor Atlas [here](https://github.com/pyrfume/PyrfumeCodefest/blob/main/Teaching%20Materials/Starter%20Code%20Explore%20Dravnieks%20Atlas.R). An introduction to the dataset is [here](https://twitter.com/JLand52/status/1514634622327353345). The first 18 lines will show you how to load in the data and look at it. Lines 21-27 will show you how to make a principal component analysis plot. Lines 29+ will show you how to visualize a specific odor as a spider/radar plot.
 
-
-
-if you want to see a completed version of the graph and tweak from there.
-
 ## Guidelines 
 (modified from [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) )
 
