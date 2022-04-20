@@ -21,9 +21,9 @@ Show your work: Thursday, April 21st at 4 pm (Great Egret): Present your best re
 
 ## Virtual participation in AChemS 2022
 
-Starter code is provided at https://github.com/pyrfume/PyrfumeCodefest/tree/main/Teaching%20Materials
+Starter code is provided [here](https://github.com/pyrfume/PyrfumeCodefest/tree/main/Teaching%20Materials)
 
-If you are a beginning coder, we recommend that you start by reproducing Figure 4 from [Gilbert & Wysocki 1989](https://t.co/v8ZtC1JO1H). You can see it [here] (https://twitter.com/JLand52/status/1514997024080293890). Code is provided [here](https://github.com/pyrfume/PyrfumeCodefest/blob/main/Teaching%20Materials/Starter%20Code%20Reproduce%20Nat%20Geo%20Figure%204.R). The first 15 lines will show you how to load in the data and look at it. Lines 17-24 will show you how to do some simple data cleaning. Lines 34+ will show you a full solution. You can either try to do this yourself and check the code when you get stuck, or run through the code and then tweak it to alter your graph.
+If you are a beginning coder, we recommend that you start by reproducing Figure 4 from [Gilbert & Wysocki 1989](https://t.co/v8ZtC1JO1H). You can see it [here](https://twitter.com/JLand52/status/1514997024080293890). Code is provided [here](https://github.com/pyrfume/PyrfumeCodefest/blob/main/Teaching%20Materials/Starter%20Code%20Reproduce%20Nat%20Geo%20Figure%204.R). The first 15 lines will show you how to load in the data and look at it. Lines 17-24 will show you how to do some simple data cleaning. Lines 34+ will show you a full solution. You can either try to do this yourself and check the code when you get stuck, or run through the code and then tweak it to alter your graph.
 
 Next, we have beginner code for looking at the Dravnieks Odor Atlas [here](https://github.com/pyrfume/PyrfumeCodefest/blob/main/Teaching%20Materials/Starter%20Code%20Explore%20Dravnieks%20Atlas.R). An introduction to the dataset is [here](https://twitter.com/JLand52/status/1514634622327353345). The first 18 lines will show you how to load in the data and look at it. Lines 21-27 will show you how to make a principal component analysis plot. Lines 29+ will show you how to visualize a specific odor as a spider/radar plot.
 
