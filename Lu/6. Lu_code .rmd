@@ -1,0 +1,59 @@
+---
+title: "Pyrfume_test"
+output: html_document
+date: '2022-04-20'
+---
+
+```{r setup, include=FALSE}
+library(pyrfume)
+library(tidyverse)
+library(dplyr)
+library(plotly)
+```
+
+
+```{r}
+NGS_Small <- read.csv("data/NGS_sample01.csv")
+NGS_DataDictionary <- load_data("nat_geo_1986/DataDictionary.csv")
+head(NGS_DataDictionary)
+```
+
+```{r}
+NGS_Small
+
+```
+
+```{r}
+# Subset for columns of past allergies/loss of smell + correct odor 
+rownames(NGS_Small) <- NGS_Small$X
+NGS_small_disease <- NGS_Small %>% select(names(NGS_Small)[c(84)])
+num_smellloss <- rowSums(NGS_Small %>% select(names(NGS_Small)[c(7:13)]))
+num_allergies <- rowSums(NGS_Small %>% select(names(NGS_Small)[c(16:20)]))
+num_allergies <- cbind(num_allergies, num_smellloss)
+NGS_small_disease <- cbind(NGS_small_disease, num_allergies)
+NGS_small_disease <- NGS_small_disease %>% count(totcorr, num_allergies, num_smellloss)
+# NGS_small_disease$totcorr <- NGS_small_disease$totcorr*3
+NGS_small_disease
+```
+
+
+```{r}
+fig <- plot_ly(data = NGS_small_disease, 
+               x = ~totcorr, 
+               y = ~num_smellloss, 
+               z = ~num_allergies,
+               color = ~totcorr, 
+               size = ~n, 
+               sizes = c(100,1e4))
+fig <- fig %>% add_markers()
+fig <- fig %>% layout(scene = list(xaxis = list(title = 'number of odors correct'),
+                     yaxis = list(title = 'Gross number of smell loss', showgrid = FALSE),
+                     zaxis = list(title = 'number of allergies', showgrid = FALSE)),
+                     title = "Population numbers of allergies and smell loss on predicting odor")
+fig
+
+htmlwidgets::saveWidget(fig, "Justice-Pyrfume.html")
+
+```
+
+

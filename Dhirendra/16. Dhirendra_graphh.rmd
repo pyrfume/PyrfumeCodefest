@@ -1,0 +1,93 @@
+---
+title: "Pleasent rating of odor molecules alone vs binary mixture with gammaHeptalactone"
+author: "Dhirendra Singh Gehlot"
+date: '2022-04-21'
+output: html_document
+keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Packages
+```{r import}
+library(pyrfume)
+library(dplyr)
+library(plotly)
+```
+
+#Import dataset from pyrfume database
+```{r import}
+ma <- load_data("ma_2021/behavior.csv")
+molecule_name <- load_data("ma_2021/molecules.csv")
+View(ma)
+summary(ma)
+```
+
+#find most used odor for creating a binary mixture from the df
+```{r}
+#define a mode function
+my_mode <- function(x) {                      
+  unique_x <- unique(x)
+  tabulate_x <- tabulate(match(x, unique_x))
+  unique_x[tabulate_x == max(tabulate_x)]
+}
+
+my_mode(ma$CID.A)
+ma_gammaHeptalactone<-subset(ma, ma$CID.A == "7742")
+```
+
+#rename the CID number of the odor compounds with their common name
+#odor discription of gammaHeptalactone: sweet spicy herbal hay coumarin
+```{r}
+ma_gammaHeptalactone$CID.A[ma_gammaHeptalactone$CID.A == "7742"] <- "gammaHeptalactone"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "998"] <- "phenylacetaldehyde"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "7284"] <- "2-methylbutyraldehyde"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "7438"] <- "carveol"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "7714"] <- "gamma-undecalactone"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "7749"] <- "ethyl propionate"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "7765"] <- "acetal"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "8186"] <- "undecanal"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "10976"] <- "2-heptanol"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "12748"] <- "4-methylthiazole"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "18635"] <- "3-(methylthio)propionaldehyde"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "18827"] <- "1-octen-3-ol"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "31249"] <- "diethyl succinate"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "61592"] <- "ethyl 3-methylsulfanylpropanoate"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "78126"] <- "2-phenylethanethiol"
+ma_gammaHeptalactone$CID.B[ma_gammaHeptalactone$CID.B == "637758"] <- "ethyl cinnamate"
+
+summary(ma_gammaHeptalactone)
+```
+
+#create a df contanining mean pleasentness ratings of odor molecules alone and in binary mixture with gammaHeptalactone
+```{r}
+#calculate mean for pleasentness rating for each molecule in column CID.B
+mean_PB <- aggregate(PB ~ CID.B, data = ma_gammaHeptalactone, FUN = mean)    #when presented alone
+mean_PAB <- aggregate(PAB ~ CID.B, data = ma_gammaHeptalactone, FUN = mean)  #presented in binary mixture
+
+PB <- as.data.frame(mean_PB)
+PAB <- as.data.frame(mean_PAB)
+
+#single df containing mean pleasentness rating of just individual odor compound and in mixture with gammaHeptalactone
+PB_PAB <- left_join(PB, PAB, by = "CID.B")
+colnames(PB_PAB) <- c("Molecules", "Alone", "Binary.gammaHeptalactone") #rename the column names
+```
+
+#plot the bargraph
+```{r}
+fig <- plot_ly(PB_PAB, x = ~ Molecules, y = ~ Alone, type = 'bar', name = 'Alone')
+fig <- fig %>% add_trace(y = ~ Binary.gammaHeptalactone, name = 'Binary.gammaHeptalactone')
+fig <- fig %>% layout(yaxis = list(title = 'Pleasentness rating'), title = "Pleasentness rating of Molecules alone vs Binary mixture with gammaHeptalactone", barmode = 'group')
+fig
+
+```
+
+
+
+
+
+
+
+
